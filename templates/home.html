@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="limiter">
+    <div class="container-login100 first-bg" >
+      <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+        
+          <span class="login100-form-title p-b-49">
+            HOME
+          </span>
+  
+          <br><br>
+          
+          
+          <div class="container-login100-form-btn pt-3">
+            <div class="wrap-login100-form-btn">
+              <div class="login100-form-bgbtn"></div>
+              <a href="{% url 'logout' %}" class="text-decoration-none">
+                  <button class="login100-form-btn" type="submit">
+                Logout
+              </button></a>
+            </div>
+          </div>
+          <br><br>
+  
+          <div class="flex-c-m pt-3">
+            <a href="#" class="login100-social-item bg1">
+              <i class="fa fa-facebook"></i>
+            </a>
+  
+            <a href="#" class="login100-social-item bg2">
+              <i class="fa fa-twitter"></i>
+            </a>
+  
+            <a href="#" class="login100-social-item bg3">
+              <i class="fa fa-google"></i>
+            </a>
+          </div>
+  
+          
+          {% for message in messages %}
+          <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+              <script>
+                Swal.fire("{{ message }}")
+                document.querySelector(".swal2-container").addEventListener('click',()=>{
+                  window.location.reload()
+                })
+                
+              </script>
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+  
+
+{% endblock content %}
+
+<!-- <div class="container text-center p-5">
+    <h1>HOME PAGE</h1><br><br><br>
+    <a href="{% url 'logout' %}"><button type="submit" class="btn btn-danger">Logout</button></a>
+
+</div> -->
